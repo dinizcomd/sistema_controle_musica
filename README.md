@@ -1,81 +1,35 @@
-# 🎵 Sistema de Controle de Músicas (CLI em TypeScript)
+Sistema de Controle de Músicas
 
-Um sistema de linha de comando (terminal) desenvolvido em **TypeScript** e **SQLite**, que permite:
+Aplicação em TypeScript para cadastro e consulta de músicas pelo terminal.
 
-- Cadastrar músicas (nome, banda e produtora)
+Funcionalidades:
+- Cadastrar música (nome, banda, produtora)
 - Pesquisar por nome, banda ou produtora
-- Listar todas as músicas cadastradas
-- Armazenar tudo em um banco SQLite persistente (mesmo com Docker)
+- Listar todas as músicas
+- Banco de dados SQLite persistente
 
----
+Como executar com Docker:
+1. docker build -t sistema_musica_cli .
+2. docker run -it --rm -v ${PWD}/data:/app/data sistema_musica_cli
 
-## 📁 Estrutura do Projeto
+Como executar sem Docker:
+1. npm install
+2. npx tsc
+3. node dist/index.js
 
-sistema_controle_musica/
-├── data/ # Banco de dados persistente (musicas.db)
-├── src/
-│ ├── index.ts # Interface CLI / menu principal
-│ ├── database.ts # Configuração do SQLite
-│ └── musicModel.ts # Funções de cadastro e consulta
-├── package.json
-├── tsconfig.json
-├── Dockerfile
-└── README.md
+Comandos Git:
+git init
+git add .
+git commit -m "Versão inicial"
+git branch -M main
+git remote remove origin
+git remote add origin https://github.com/dinizcomd/sistema_controle_musica.git
+git pull origin main --allow-unrelated-histories
+git push -u origin main --force
 
-yaml
-Copiar código
+nomes:
 
----
-
-## 🛠️ Rodar Localmente (sem Docker)
-
-```bash
-npm install
-npx tsc
-node dist/index.js
-O menu será aberto diretamente no terminal.
-
-🐋 Rodar com Docker (modo interativo + banco persistente)
-bash
-Copiar código
-mkdir data
-docker build -t sistema_controle_musica .
-docker run -it --rm -v ${PWD}/data:/app/data sistema_controle_musica
-Explicação:
-
-Cria o banco musicas.db dentro da pasta data/
-
-Mantém os dados mesmo após fechar o container
-
-🧩 Usando Docker Compose (recomendado)
-Crie um arquivo docker-compose.yml (veja abaixo) e rode:
-
-bash
-Copiar código
-docker compose up
-Assim o volume é gerenciado automaticamente e o banco é persistente.
-
-⚙️ Arquivo docker-compose.yml
-yaml
-Copiar código
-version: '3.8'
-services:
-  musicas:
-    build: .
-    container_name: sistema_controle_musica
-    volumes:
-      - musicas_data:/app/data
-    stdin_open: true
-    tty: true
-
-volumes:
-  musicas_data:
-🎯 Menu de Opções
-Opção	Função
-1	Cadastrar música
-2	Pesquisar por nome
-3	Pesquisar por banda
-4	Pesquisar por produtora
-5	Listar todas as músicas
-0	Sair do sistema
-
+Matheus Almeida Diniz RA: 2506636
+Murilo Matos Cornacini RA: 2506560
+Luciano Do Nascimento Simonato RA: 2503990
+Maria Eduarda De Morais RA: 2508726
