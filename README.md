@@ -12,20 +12,11 @@ Como executar com Docker:
 1. docker build -t sistema_musica_cli .
 2. docker run -it --rm -v ${PWD}/data:/app/data sistema_musica_cli
 
-Como executar sem Docker:
+Como executar sem docker: 
 1. npm install
 2. npx tsc
 3. node dist/index.js
 
-Comandos Git:
-git init
-git add .
-git commit -m "Versão inicial"
-git branch -M main
-git remote remove origin
-git remote add origin https://github.com/dinizcomd/sistema_controle_musica.git
-git pull origin main --allow-unrelated-histories
-git push -u origin main --force
 
 nomes:
 
